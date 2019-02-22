@@ -62,3 +62,6 @@ https://flatpickr.js.org/getting-started/
 
 // library moment
 yarn add moment
+
+// data filter
+yarn add nunjucks-date-filter
