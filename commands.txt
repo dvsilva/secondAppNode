@@ -7,6 +7,8 @@ docker run --name database -p 5432:5432 -d -t kartoza/postgis -e POSTGRES_USER=d
 docker exec -it database bash
 docker kill database
 docker rm database
+// start all
+docker start $(docker ps -a -q -f status=exited)
 //
 
 docker run --name database -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
@@ -29,7 +31,7 @@ yarn add sequelize-cli -D
 // npm install -g npx
 npx sequelize init
 
-// test
+// criar migration
 npx sequelize migration:create --name=create-users
 
 // add database no projeto
@@ -44,3 +46,19 @@ yarn add bcryptjs
 
 // para salvar imagens
 yarn add multer
+
+// para salvar dados na sessão
+yarn add express-session
+
+// salvar a sessão no disco
+yarn add session-file-store
+// ou com redis https://github.com/tj/connect-redis
+
+// para retornar mensagens
+yarn add connect-flash
+
+// plugin p data
+https://flatpickr.js.org/getting-started/
+
+// library moment
+yarn add moment
