@@ -1,0 +1,40 @@
+//Docker instalation
+https://docs.docker.com/install/linux/docker-ce/ubuntu/
+
+//Docker postgres image
+//
+docker run --name database -p 5432:5432 -d -t kartoza/postgis -e POSTGRES_USER=docker POSTGRES_PASSWORD=docker -e POSTGRES_DBNAME=gonodemodulo2
+docker exec -it database bash
+docker kill database
+docker rm database
+//
+
+docker run --name database -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
+docker run -p 89:80 --link database -e "PGADMIN_DEFAULT_EMAIL=email@domain.com" -e "PGADMIN_DEFAULT_PASSWORD=postgres" -d dpage/pgadmin4 
+
+browser: http://localhost:89
+login: email@domain.com / password: postgres
+connection
+name: localhost 
+host: database
+port: 5432
+user and password: postgres
+
+// consultar processos
+docker ps
+
+// adicionar ORM
+yarn add sequelize
+yarn add sequelize-cli -D
+// npm install -g npx
+npx sequelize init
+
+// test
+npx sequelize migration:create --name=create-users
+
+// add database no projeto
+//yarn add mysql2
+yarn add pg
+
+//execute migration
+npx sequelize db:migrate
