@@ -38,3 +38,9 @@ yarn add pg
 
 //execute migration
 npx sequelize db:migrate
+
+// para fazer criptografia de senha
+yarn add bcryptjs
+
+// para salvar imagens
+yarn add multer
